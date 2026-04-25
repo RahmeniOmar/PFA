@@ -1,4 +1,5 @@
 import csv
+import matplotlib.pyplot as plt
 
 # ============ Générer ventes.csv ============
 donnees = [
@@ -64,3 +65,15 @@ with open("resultats_final.csv", "w", newline="") as sortie:
     writer.writerows(resultats)
 
 print("Fichier resultats_final.csv exporté avec succès !")
+
+#####################################################################################
+ids = [str(r["ID"]) for r in resultats]
+ca_nets = [r["CA_Net"] for r in resultats]
+
+plt.figure(figsize=(8, 5))
+plt.bar(ids, ca_nets, color="steelblue")
+plt.title("CA Net par Produit")
+plt.xlabel("ID Produit")
+plt.ylabel("CA Net (DT)")
+plt.tight_layout()
+plt.show()
