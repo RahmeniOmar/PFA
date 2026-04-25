@@ -1,6 +1,6 @@
 import csv
 
-# ============ ÉTAPE 1 : Générer ventes.csv ============
+# ============ Générer ventes.csv ============
 donnees = [
     [101, 15.0, 3, 10],
     [102, 25.0, 2, 5],
@@ -12,9 +12,9 @@ with open("ventes.csv", "w", newline="") as fichier:
     writer = csv.writer(fichier)
     writer.writerow(["ID", "Prix", "Quantite", "Remise"])
     writer.writerows(donnees)
-print("✅ Fichier ventes.csv créé !")
 
-# ============ ÉTAPES 2-6 : Calculs ============
+
+# ============ Calculs ============
 ca_total = 0
 meilleur_id = None
 meilleur_ca = 0
@@ -50,17 +50,17 @@ with open("ventes.csv", "r") as fichier:
 
         print(f"Produit {id_produit} → CA Brut = {ca_brut} DT | CA Net = {ca_net} DT | TVA = {tva} DT")
 
-# ============ ÉTAPE 5 : CA Total ============
-print(f"\n💰 CA Total de l'entreprise = {ca_total} DT")
+# ============ CA Total ============
+print(f"\n CA Total de l'entreprise = {ca_total} DT")
 
-# ============ ÉTAPE 6 : Meilleur produit ============
-print(f"🏆 Meilleur produit : ID {meilleur_id} avec {meilleur_ca} DT")
+# ============ Meilleur produit ============
+print(f" Meilleur produit : ID {meilleur_id} avec {meilleur_ca} DT")
 
-# ============ ÉTAPE 7 : Export resultats_final.csv ============
+# ============ Export resultats_final.csv ============
 with open("resultats_final.csv", "w", newline="") as sortie:
     colonnes = ["ID", "Prix", "Quantite", "Remise", "CA_Brut", "CA_Net", "TVA"]
     writer = csv.DictWriter(sortie, fieldnames=colonnes)
     writer.writeheader()
     writer.writerows(resultats)
 
-print("✅ Fichier resultats_final.csv exporté avec succès !")
+print("Fichier resultats_final.csv exporté avec succès !")
